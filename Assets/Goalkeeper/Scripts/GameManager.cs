@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Kicker kicker;
 
+    [SerializeField]
+    private GameObject target;
+
     private UIManager uiManager;
 
     private string nextScene;
@@ -16,28 +19,26 @@ public class GameManager : MonoBehaviour
         uiManager = GetComponent<UIManager>();
     }
 
-    public void GameEnd()
+    public void GameEnd(int playerScore, int loseScore)
     {
         kicker.EndGame();
-        uiManager.ShowEndGame();
+        uiManager.ShowEndGame(playerScore, loseScore);
+        target.SetActive(false);
     }
 
     public void RestartGame()
     {
         nextScene = SceneManager.GetActiveScene().name;
-        uiManager.ReloadAnim();
     }
 
     public void QuitGame()
     {
         nextScene = "QUIT";
-        uiManager.ReloadAnim();
     }
 
     public void Menu()
     {
         nextScene = "Menu";
-        uiManager.ReloadAnim();
     }
 
     public void LoadNextScene()

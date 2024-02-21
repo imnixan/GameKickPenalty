@@ -7,9 +7,6 @@ public class Kicker : MonoBehaviour
     private Ball ball;
 
     [SerializeField]
-    private HPManager hpManager;
-
-    [SerializeField]
     private ScoresManager scoresManager;
 
     [SerializeField]
@@ -119,7 +116,7 @@ public class Kicker : MonoBehaviour
         }
         else
         {
-            hpManager.RestoreHp();
+            scoresManager.AddLose();
         }
     }
 

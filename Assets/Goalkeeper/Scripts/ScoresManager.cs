@@ -1,72 +1,51 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ScoresManager : MonoBehaviour
 {
     [SerializeField]
-    private Sprite[] digits;
-
-    [SerializeField]
-    private Image[] InGameWindows,
-        EndGameWindows,
-        RecordWindows;
+    private Image[] balls;
 
     private int scores;
-    private int bestRecord;
+    private int loses;
+
+    private int kicksLeft = 5;
+    private GameManager gm;
 
     private void Start()
     {
-        bestRecord = PlayerPrefs.GetInt("Best");
-        UpdateScoresOnTable();
+        gm = FindAnyObjectByType<GameManager>();
     }
 
     public void AddScore()
     {
         scores++;
-        if (scores > bestRecord)
-        {
-            bestRecord = scores;
-            PlayerPrefs.SetInt("Best", bestRecord);
-            PlayerPrefs.Save();
-        }
-        UpdateScoresOnTable();
+        CheckEndGame();
     }
 
-    private void UpdateScoresOnTable()
+    private void CheckEndGame()
     {
-        if (scores > 99)
+        kicksLeft--;
+        if (kicksLeft == 0)
         {
-            InGameWindows[0].sprite = digits[scores / 100];
-            InGameWindows[1].sprite = digits[(scores / 10) % 10];
-            InGameWindows[2].sprite = digits[scores % 10];
-
-            EndGameWindows[0].sprite = digits[scores / 100];
-            EndGameWindows[1].sprite = digits[(scores / 10) % 10];
-            EndGameWindows[2].sprite = digits[scores % 10];
-
-            RecordWindows[0].sprite = digits[bestRecord / 100];
-            RecordWindows[1].sprite = digits[(bestRecord / 10) % 10];
-            RecordWindows[2].sprite = digits[bestRecord % 10];
+            gm.GameEnd(scores, loses);
         }
-        else if (scores > 9)
+        if (kicksLeft >= 0)
         {
-            InGameWindows[1].sprite = digits[scores / 10];
-            InGameWindows[2].sprite = digits[scores % 10];
-
-            EndGameWindows[1].sprite = digits[scores / 10];
-            EndGameWindows[2].sprite = digits[scores % 10];
-
-            RecordWindows[1].sprite = digits[bestRecord / 10];
-            RecordWindows[2].sprite = digits[bestRecord % 10];
+            UpdateKicks();
         }
-        else
-        {
-            InGameWindows[2].sprite = digits[scores];
+    }
 
-            EndGameWindows[2].sprite = digits[scores];
+    public void AddLose()
+    {
+        loses++;
+        CheckEndGame();
+    }
 
-            RecordWindows[2].sprite = digits[bestRecord];
-        }
+    private void UpdateKicks()
+    {
+        balls[kicksLeft].DOColor(new Color(0.5f, 0.5f, 0.5f, 0.2f), 0.5f);
     }
 }
