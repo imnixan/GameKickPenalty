@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         nextScene = SceneManager.GetActiveScene().name;
+        LoadNextScene();
     }
 
     public void QuitGame()

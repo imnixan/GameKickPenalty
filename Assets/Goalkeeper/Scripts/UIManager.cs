@@ -7,7 +7,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private RectTransform scoresWindow,
         topBar,
-        endGameWindow;
+        endGameWindow,
+        btns;
 
     private GameManager gm;
 
@@ -21,5 +22,6 @@ public class UIManager : MonoBehaviour
         scoresWindow.DOAnchorPosY(10000, 0.5f);
         topBar.DOAnchorPosY(2000, 0.5f);
         endGameWindow.DOAnchorPosY(0, 0.5f);
+        btns.DOAnchorPosY(75, 0.5f);
     }
 }

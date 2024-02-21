@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Kicker : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class Kicker : MonoBehaviour
 
     [SerializeField]
     private GoalKeeper goalKeeper;
+
+    [SerializeField]
+    private GameObject target;
 
     [SerializeField]
     private KickState state;
@@ -32,6 +36,16 @@ public class Kicker : MonoBehaviour
     private float speed = 2;
     private Vector3 startPos;
 
+    private void OnEnable()
+    {
+        target.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        target.SetActive(false);
+    }
+
     private void Start()
     {
         startPos = transform.position;
@@ -39,17 +53,17 @@ public class Kicker : MonoBehaviour
 
     private Vector3 LeftPos
     {
-        get { return new Vector3(-4, transform.position.y, -3); }
+        get { return new Vector3(-2, transform.position.y, -3); }
     }
 
     private Vector3 RightPos
     {
-        get { return new Vector3(4, transform.position.y, -3); }
+        get { return new Vector3(2, transform.position.y, -3); }
     }
 
     private Vector3 TopPos
     {
-        get { return new Vector3(transform.position.x, 3, -3); }
+        get { return new Vector3(transform.position.x, 2.6f, -3); }
     }
 
     private Vector3 DownPos
