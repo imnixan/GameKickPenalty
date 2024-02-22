@@ -21,7 +21,15 @@ public class CardGameManager : MonoBehaviour
         {
             cards[i].SetCard(cardFaces[i]);
         }
+    }
+
+    [SerializeField]
+    private RectTransform playBtn;
+
+    public void PlayGame()
+    {
         StartCoroutine(StartGame());
+        playBtn.DOAnchorPosY(-1000, 0.5f);
     }
 
     private int cardCount;
