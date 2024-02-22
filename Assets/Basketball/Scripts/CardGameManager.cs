@@ -9,9 +9,11 @@ public class CardGameManager : MonoBehaviour
     private Sprite[] cardFaces;
 
     private Card[] cards;
+    private BasketGameManager bgm;
 
     private void Start()
     {
+        bgm = FindAnyObjectByType<BasketGameManager>();
         cards = GetComponentsInChildren<Card>();
         cards.Shuffle();
         cardFaces.Shuffle();
@@ -29,14 +31,15 @@ public class CardGameManager : MonoBehaviour
         if (cardId == cardCount)
         {
             cardCount++;
+            bgm.AddCard();
             if (cardCount == 4)
             {
-                Debug.Log("Win");
+                bgm.EndGame(true);
             }
         }
         else
         {
-            Debug.Log("Lose");
+            bgm.EndGame(false);
         }
     }
 

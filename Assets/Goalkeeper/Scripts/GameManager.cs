@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     public void Menu()
     {
         nextScene = "Menu";
+        LoadNextScene();
     }
 
     public void LoadNextScene()
