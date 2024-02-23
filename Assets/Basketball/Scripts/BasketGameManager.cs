@@ -21,8 +21,8 @@ public class BasketGameManager : MonoBehaviour
         endButtons;
 
     private int cardsRow;
-    private int time;
     private bool win;
+    private Timer time;
 
     public void AddCard()
     {
@@ -33,21 +33,15 @@ public class BasketGameManager : MonoBehaviour
     private void Start()
     {
         cardsRow = PlayerPrefs.GetInt("row");
-        time = PlayerPrefs.GetInt("time");
+        time = FindAnyObjectByType<Timer>();
         row.text = cardsRow.ToString();
-        timer.text = FormatTime(time);
-        StartCoroutine(TimerCounter());
+        timer.text = time.FormatTime(time.GetTime());
+        time.StartTime();
     }
 
-    IEnumerator TimerCounter()
+    private void Update()
     {
-        WaitForSeconds second = new WaitForSeconds(1);
-        while (true)
-        {
-            yield return second;
-            time++;
-            timer.text = FormatTime(time);
-        }
+        timer.text = time.FormatTime(time.GetTime());
     }
 
     public void EndGame(bool win)
@@ -58,22 +52,15 @@ public class BasketGameManager : MonoBehaviour
         cards.DOAnchorPosX(-2000, 0.5f);
         endWindow.DOAnchorPosY(0, 0.5f);
         endButtons.DOAnchorPosY(50, 0.5f);
-        StopAllCoroutines();
-        timerEnd.text = FormatTime(time);
+        time.StopTimer();
+        timerEnd.text = time.FormatTime(time.GetTime());
         rowEnd.text = $"{cardsRow} cards";
         if (win)
         {
-            PlayerPrefs.SetInt("time", time);
+            PlayerPrefs.SetInt("time", time.GetTime());
             PlayerPrefs.SetInt("row", cardsRow);
             PlayerPrefs.Save();
         }
-    }
-
-    private string FormatTime(int seconds)
-    {
-        int minutes = seconds / 60;
-        int remainingSeconds = seconds % 60;
-        return string.Format("{0:00}:{1:00}", minutes, remainingSeconds);
     }
 
     public void Restart()

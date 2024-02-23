@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3da7c3248a6b5c4bbc2c409b7613ff7, type: 3}
+  m_Name: basketball
+  m_EditorClassIdentifier: 
+  infoText: ' Basketball fans are fans of the game who actively support their favourite
+    teams. They go to games, dress in fan paraphernalia and create exciting and energetic
+    atmospheres in arenas. Basketball fans often help create a good atmosphere for
+    games and support their players.'
+  infoSprite: {fileID: 21300000, guid: 81b2c2c0a72688f47bd38180462c3b35, type: 3}
+  header: Basketball

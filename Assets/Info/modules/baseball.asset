@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3da7c3248a6b5c4bbc2c409b7613ff7, type: 3}
+  m_Name: baseball
+  m_EditorClassIdentifier: 
+  infoText: Baseball is a popular sports game, especially common in the United States
+    and Japan. It is played by two teams, each with nine players. The object of the
+    game is to score points by the batter completing a complete turnaround of the
+    bases, starting with home base. Baseball is often associated with American culture
+    and is one of the oldest organised sports in the United States.
+  infoSprite: {fileID: 21300000, guid: d84f8ce03becc004b8dfc9a08cd7c51a, type: 3}
+  header: Baseball

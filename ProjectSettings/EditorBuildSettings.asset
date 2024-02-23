@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BasketballGame.unity
     guid: 23e89c37ba2ec2e4499558f584e32650
+  - enabled: 1
+    path: Assets/Scenes/FindTheTrophy.unity
+    guid: 29823d5609709524a95a69a99292c336
   m_configObjects: {}
