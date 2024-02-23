@@ -66,6 +66,7 @@ public class FindGameManager : MonoBehaviour
         {
             case Element.Type.Bomb:
                 DecraseHp();
+                AudioSource.PlayClipAtPoint(explode, Vector2.zero);
                 Debug.Log("boom");
                 break;
             case Element.Type.Star:
@@ -81,9 +82,11 @@ public class FindGameManager : MonoBehaviour
                 scores += 10;
                 scoreCounter.text = $"scores:\n{scores}";
                 Debug.Log("GoldStar");
+                AudioSource.PlayClipAtPoint(open, Vector2.zero);
                 break;
             case Element.Type.Trophy:
                 Debug.Log("Trophy");
+                AudioSource.PlayClipAtPoint(open, Vector2.zero);
                 WinGame();
                 break;
         }
@@ -123,6 +126,10 @@ public class FindGameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+
+    [SerializeField]
+    private AudioClip open,
+        explode;
 
     private void LoseGame()
     {

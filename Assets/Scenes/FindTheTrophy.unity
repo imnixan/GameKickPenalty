@@ -3557,6 +3557,8 @@ MonoBehaviour:
   - {fileID: 1997151}
   - {fileID: 869694467}
   - {fileID: 520570213}
+  open: {fileID: 8300000, guid: 0ecd0850e9f51454d9e9ff82812ecbb6, type: 3}
+  explode: {fileID: 8300000, guid: 312793884f7b80446b7ec9dccdabc4b9, type: 3}
 --- !u!114 &1549145946
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,8 +34,12 @@ public class CardGameManager : MonoBehaviour
 
     private int cardCount;
 
+    [SerializeField]
+    private AudioClip open;
+
     public void CardOpened(int cardId)
     {
+        AudioSource.PlayClipAtPoint(open, Vector2.zero);
         if (cardId == cardCount)
         {
             cardCount++;
