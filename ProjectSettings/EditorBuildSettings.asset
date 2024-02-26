@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Loader.unity
+    path: Assets/Scenes/Splash.unity
     guid: 6234e5bf9a0f1204bb1f2249dd3fdfc3
   - enabled: 1
     path: Assets/Scenes/Menu.unity
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FindTheTrophy.unity
     guid: 29823d5609709524a95a69a99292c336
+  - enabled: 1
+    path: Assets/Plugins/RulesData/Scenes/SportsRules.unity
+    guid: 6d391995662cc4cbca2ece9accf874ae
   m_configObjects: {}
